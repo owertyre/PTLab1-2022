@@ -3,8 +3,8 @@ import argparse
 import sys
 
 from CalcRating import CalcRating
-from CustomXmlDataReader import CustomXmlDataReader
-from TopStudents import TopStudents
+from XmlDataReader import XmlDataReader
+from ExcellentStudent import ExcellentStudent
 
 
 def get_path_from_arguments(args) -> str:
@@ -17,16 +17,23 @@ def get_path_from_arguments(args) -> str:
 
 def main():
     path = get_path_from_arguments(sys.argv[1:])
+    reader = XmlDataReader()
 
-    reader = CustomXmlDataReader()
     students = reader.read(path)
-
     print("Students: ", students)
 
     rating = CalcRating(students).calc()
     print("Rating: ", rating)
-    result = TopStudents(students).calc()
-    print("Ученик со 100 баллами по всем предметам:", result)
+
+    data = reader.read(path)
+    print(data)
+
+    excellentStudent = ExcellentStudent(students).calc()
+    if len(excellentStudent) != 0:
+        print("Студент имеющий 100 баллов по всем дисциплинам: ", excellentStudent)
+    else:
+        print("Студент имеющий 100 баллов по всем дисциплинам - отсутствует")
+
 
 if __name__ == "__main__":
     main()

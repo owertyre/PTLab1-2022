@@ -4,7 +4,7 @@ from DataReader import DataReader
 import xml.etree.ElementTree as ET
 
 
-class CustomXmlDataReader(DataReader):
+class XmlDataReader(DataReader):
 
     def __init__(self) -> None:
         self.key: str = ""
