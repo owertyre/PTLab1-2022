@@ -30,8 +30,12 @@ def main():
 
     excellentStudent = ExcellentStudent(students).calc()
     if len(excellentStudent) != 0:
-        print("Студент имеющий 100 баллов по всем дисциплинам: ", excellentStudent)
+
+        print("Студент имеющий 100 баллов по всем дисциплинам:"
+              " ", excellentStudent)
+
     else:
+
         print("Студент имеющий 100 баллов по всем дисциплинам - отсутствует")
 
 
